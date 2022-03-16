@@ -1,0 +1,22 @@
+<form>
+  <div class="form-group">
+    <label for="subject">Predmet</label>
+    <select class="form-control" id="subject">
+      <option *ngFor="let subject of taughtSubjects"></option>
+    </select>
+  </div>
+  <app-tags></app-tags>
+  <div class="form-group">
+    <label for="difficulty">Obtiznost</label>
+    <input class="form-control" id="difficulty" type="number"/>
+  </div>
+  <div class="form-group">
+    <label for="assignment">Zadani</label>
+    <textarea class="form-control" id="assignment" rows="4"></textarea>
+  </div>
+  <app-question-list></app-question-list>
+  <div>
+    <button class="btn btn-primary" type="submit">Ulozit</button>
+    <button class="btn btn-danger" type="button">Zavrit</button>
+  </div>
+</form>
