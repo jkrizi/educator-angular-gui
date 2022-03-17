@@ -3,3 +3,14 @@
   width: 100%;
   align-items: stretch;
 }
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  color: white;;
+  background-color: mediumseagreen;
+}
+
+.content {
+  padding: 50px;
+}
