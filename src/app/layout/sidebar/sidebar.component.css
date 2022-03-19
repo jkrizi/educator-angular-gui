@@ -1,6 +1,7 @@
 .sidebar-header {
   padding: 20px;
-  background: seagreen;
+  background: darkseagreen;
+  border-bottom: 1px solid white;
 }
 
 a, a:hover, a:focus {
@@ -20,11 +21,11 @@ ul li a {
   display: block;
 }
 ul li a:hover {
-  color: mediumseagreen;
+  color: darkseagreen;
   background: white;
 }
 
 ul li.active {
-  color: white;
-  background: seagreen;
+  color: darkseagreen;
+  background: white;
 }

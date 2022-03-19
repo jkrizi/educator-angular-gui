@@ -1,6 +1,14 @@
-<app-vault-filter></app-vault-filter>
-<div (click)="createQuestion()">Some</div>
-<div *ngFor="let question of questions">
-  <app-question [question]="question" (triggerEdit)="editQuestion(question)" (triggerDelete)="deleteQuestion(question)"></app-question>
+<div [ngClass]="{'split-screen': isEditing}">
+  <div [ngClass]="{'split-screen-element': isEditing}">
+    <app-vault-filter></app-vault-filter>
+    <button [ngClass]="{'btn-new-question': true, 'btn-new-question-selected': isSelected('new')}" type="button"
+            (click)="createQuestion()">Nova otazka
+    </button>
+    <div *ngFor="let question of questions">
+      <app-question [isSelected]="isSelected(question)" [question]="question"
+                    (triggerEdit)="editQuestion(question)"></app-question>
+    </div>
+  </div>
+  <app-question-form [ngClass]="{'split-screen-element': isEditing}" *ngIf="isEditing"
+                     (finishedEditing)="closeEditor()"></app-question-form>
 </div>
-<router-outlet></router-outlet>

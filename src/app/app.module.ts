@@ -16,6 +16,7 @@ import {QuestionListComponent} from './vault/question-form/question-list/questio
 import {FormsModule} from "@angular/forms";
 import {NotFoundComponent} from './common/error/not-found/not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {AppRoutingModule} from "./app-routing.module";
     TagsComponent,
     WorkspaceComponent,
     QuestionListComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

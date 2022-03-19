@@ -1,0 +1,18 @@
+.question-container {
+  border: darkseagreen 1px solid;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  color: darkseagreen;
+}
+
+.question-container:hover {
+  color: white;
+  background-color: darkseagreen;
+  transition: all 0.3s;
+}
+
+.question-container.selected {
+  color: white;
+  background-color: darkseagreen;
+}

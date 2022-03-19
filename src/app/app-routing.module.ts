@@ -4,8 +4,11 @@ import {VaultComponent} from "./vault/vault.component";
 import {QuestionFormComponent} from "./vault/question-form/question-form.component";
 import {EngineComponent} from "./engine/engine.component";
 import {NotFoundComponent} from "./common/error/not-found/not-found.component";
+import {HomeComponent} from "./home/home.component";
 
 const routes: Routes = [
+  {path: "", redirectTo: "/home", pathMatch: 'full'},
+  {path: "home", component: HomeComponent},
   {
     path: "vault", component: VaultComponent, children: [
       {path: "editor/:id", component: QuestionFormComponent},

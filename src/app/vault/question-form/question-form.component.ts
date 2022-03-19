@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-question-form',
@@ -8,17 +7,21 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 })
 export class QuestionFormComponent implements OnInit {
 
+  @Input()
+  formQuestion: string;
+
+  @Output()
+  finishedEditing = new EventEmitter();
+
   public taughtSubjects: string[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((queryParams: Params) => console.log(queryParams["new"]));
-    this.route.params.subscribe((params: Params) => console.log(params["id"]));
   }
 
   public closeForm() {
-    this.router.navigate(["/vault"]);
+    this.finishedEditing.emit();
   }
 
 }

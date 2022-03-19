@@ -11,24 +11,20 @@ export class QuestionComponent implements OnInit {
   @Input()
   question: string;
 
+  @Input()
+  isSelected: boolean;
+
   @Output()
   triggerEdit = new EventEmitter();
 
-  @Output()
-  triggerDelete = new EventEmitter();
-
-  expand: boolean = false;
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  edit() {
+  select() {
+    this.isSelected = true;
     this.triggerEdit.emit();
-  }
-
-  delete() {
-    this.triggerDelete.emit();
   }
 }

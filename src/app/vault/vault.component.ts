@@ -8,22 +8,34 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class VaultComponent implements OnInit {
 
+  isEditing: boolean = false;
+  openedQuestion: string = '';
+
   questions: string[] = ["dummy1", "dummy2"];
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
+  isSelected (question: string) {
+    return this.openedQuestion === question;
+  }
+
   createQuestion() {
-    this.router.navigate(["editor", "some"], {relativeTo: this.route, queryParams: {new: true}});
+    this.openEditor("new");
   }
 
   editQuestion(question: string) {
-    this.router.navigate(["editor", question], {relativeTo: this.route, queryParams: {new: false}});
+    this.openEditor(question);
   }
 
-  deleteQuestion(question: string) {
+  private openEditor(question: string) {
+    this.isEditing = true;
+    this.openedQuestion = question;
+  }
 
+  closeEditor() {
+    this.isEditing = false;
   }
 }
