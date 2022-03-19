@@ -3,6 +3,9 @@
     <h3><em class="bi bi-justify-left"></em> Educador</h3>
   </div>
   <ul class="list-unstyled components">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="['/']"><em class="bi bi-house-fill"></em> Domu</a>
+    </li>
     <li routerLinkActive="active">
       <a [routerLink]="['/vault']"><em class="bi bi-boxes"></em> Otazky</a>
     </li>
