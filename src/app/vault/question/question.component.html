@@ -1,3 +1,3 @@
 <div [ngClass]="{'question-container': true, 'selected': isSelected}" (click)="select()">
-  {{question}}
+  {{question.title}} {{question.tags}} {{question.answers.length}} {{correctAnswersCount}} {{question.difficulty}}
 </div>

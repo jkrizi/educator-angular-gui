@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Question} from "../../models/question.model";
 
 @Component({
   selector: 'app-question-form',
@@ -8,7 +9,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class QuestionFormComponent implements OnInit {
 
   @Input()
-  formQuestion: string;
+  formQuestion: Question;
 
   @Output()
   finishedEditing = new EventEmitter();

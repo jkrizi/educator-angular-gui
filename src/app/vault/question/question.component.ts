@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {trigger} from "@angular/animations";
+import {Question} from "../../models/question.model";
 
 @Component({
   selector: 'app-question',
@@ -8,19 +8,18 @@ import {trigger} from "@angular/animations";
 })
 export class QuestionComponent implements OnInit {
 
-  @Input()
-  question: string;
+  @Input() question: Question;
+  @Input() isSelected: boolean;
 
-  @Input()
-  isSelected: boolean;
+  @Output() triggerEdit = new EventEmitter();
 
-  @Output()
-  triggerEdit = new EventEmitter();
+  correctAnswersCount: number;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.correctAnswersCount = this.question.answers.filter(answer => answer.isCorrect).length;
   }
 
   select() {
