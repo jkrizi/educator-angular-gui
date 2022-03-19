@@ -50,6 +50,7 @@ export class VaultComponent implements OnInit {
   }
 
   closeEditor() {
+    this.openedQuestion = null;
     this.isEditing = false;
   }
 }

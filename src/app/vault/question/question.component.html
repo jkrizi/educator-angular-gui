@@ -1,3 +1,11 @@
 <div [ngClass]="{'question-container': true, 'selected': isSelected}" (click)="select()">
-  {{question.title}} {{question.tags}} {{question.answers.length}} {{correctAnswersCount}} {{question.difficulty}}
+  <span class="title">{{question.title}}</span>
+  <div class="tags">
+    <span class="tag" *ngFor="let tag of question.tags">{{tag}}</span>
+  </div>
+  <div class="dots">
+    <span class="dot">{{question.answers.length}}</span>
+    <span class="dot">{{correctAnswersCount}}</span>
+    <span class="dot">{{question.difficulty}}</span>
+  </div>
 </div>
