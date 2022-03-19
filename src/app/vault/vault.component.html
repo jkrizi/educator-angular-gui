@@ -1,1 +1,6 @@
-<app-question-form></app-question-form>
+<app-vault-filter></app-vault-filter>
+<div (click)="createQuestion()">Some</div>
+<div *ngFor="let question of questions">
+  <app-question [question]="question" (triggerEdit)="editQuestion(question)" (triggerDelete)="deleteQuestion(question)"></app-question>
+</div>
+<router-outlet></router-outlet>

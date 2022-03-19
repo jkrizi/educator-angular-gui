@@ -1,1 +1,10 @@
-<p>question works!</p>
+<div (click)="expand = !expand">
+  <div>
+    {{question}}
+  </div>
+  <div *ngIf="expand">
+    Additional info
+    <button class="btn btn-warning" type="button" (click)="edit()">Upravit</button>
+    <button class="btn btn-danger" type="button" (click)="delete()">Smazat</button>
+  </div>
+</div>
