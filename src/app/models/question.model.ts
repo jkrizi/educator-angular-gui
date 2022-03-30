@@ -5,8 +5,8 @@ export class Question {
   id: string;
   subject: string;
   title: string;
-  tags: string[];
+  tags: string[] = [];
   difficulty: number;
   assignment: string;
-  answers: Answer[];
+  answers: Answer[] = [];
 }

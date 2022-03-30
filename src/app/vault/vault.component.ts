@@ -53,4 +53,8 @@ export class VaultComponent implements OnInit {
     this.openedQuestion = null;
     this.isEditing = false;
   }
+
+  saveQuestion(question: Question) {
+    this.questions.push(question);
+  }
 }

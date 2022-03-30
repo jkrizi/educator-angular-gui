@@ -11,12 +11,13 @@ import {Answer} from "../../models/answer.model";
 export class QuestionFormComponent implements OnInit {
 
   taughtSubjects: string[] = ['', 'Matematika', 'Fyzika', 'Chemie'];
-
   knownTags: string[] = ['Test1', 'Zaklady', 'Vzorce', 'Neorganicka', '1. pololeti', '3. rocnik'];
+
   usedTags: string[] = [];
 
   @Input() question: Question;
-  @Output() finishedEditing = new EventEmitter();
+  @Output() closeEditor = new EventEmitter();
+  @Output() saveQuestion = new EventEmitter<Question>();
 
   form: FormGroup;
 
@@ -42,11 +43,13 @@ export class QuestionFormComponent implements OnInit {
   }
 
   public closeForm() {
-    this.finishedEditing.emit();
+    this.form.reset();
+    this.closeEditor.emit();
   }
 
   submitForm() {
-    this.form.reset()
+    this.saveQuestion.emit(this.form.value);
+    this.closeForm();
   }
 
   deleteAnswer(answerIndex: number) {
