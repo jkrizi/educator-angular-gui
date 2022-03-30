@@ -15,8 +15,8 @@ export class VaultComponent implements OnInit {
 
   questions: Question[] = [
     {id: '1', subject: 'Matematika', title: 'Derivace zakladni', assignment: 'Zadani1', tags: ['Test1'], difficulty: 5, answers: []},
-    {id: '2', subject: 'Fyzika', title: 'Gravitace vzorec', assignment: 'Zadani2', tags: ['Zaklady', 'Vzorce'], difficulty: 3, answers: [{isCorrect: true, text: 'ANO'}, {isCorrect: false, text: 'NE'}]},
-    {id: '3', subject: 'Chemie', title: 'Draslikova reakce', assignment: 'Zadani3', tags: ['Neorganicka', '1. pololeti', '3. rocnik'], difficulty: 10, answers: [{isCorrect: false, text: 'Odpoved1'}, {isCorrect: false, text: 'Odpoved2'}, {isCorrect: true, text: 'Odpoved3'}, {isCorrect: false, text: 'Odpoved4'},]}
+    {id: '2', subject: 'Fyzika', title: 'Gravitace vzorec', assignment: 'Zadani2', tags: ['Zaklady', 'Vzorce'], difficulty: 3, answers: [{id: '1', isCorrect: true, text: 'ANO'}, {id: '2', isCorrect: false, text: 'NE'}]},
+    {id: '3', subject: 'Chemie', title: 'Draslikova reakce', assignment: 'Zadani3', tags: ['Neorganicka', '1. pololeti', '3. rocnik'], difficulty: 10, answers: [{id: '3', isCorrect: false, text: 'Odpoved1'}, {id: '4', isCorrect: false, text: 'Odpoved2'}, {id: '5', isCorrect: true, text: 'Odpoved3'}, {id: '6', isCorrect: false, text: 'Odpoved4'},]}
   ];
 
   constructor() { }
@@ -45,8 +45,8 @@ export class VaultComponent implements OnInit {
   }
 
   private openEditor(question: Question) {
-    this.isEditing = true;
     this.openedQuestion = question;
+    this.isEditing = true;
   }
 
   closeEditor() {

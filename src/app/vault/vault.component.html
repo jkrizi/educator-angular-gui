@@ -10,5 +10,5 @@
     </div>
   </div>
   <app-question-form [ngClass]="{'split-screen-element': isEditing}" *ngIf="isEditing"
-                     (finishedEditing)="closeEditor()"></app-question-form>
+                     (finishedEditing)="closeEditor()" [question]="openedQuestion"></app-question-form>
 </div>

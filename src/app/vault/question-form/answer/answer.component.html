@@ -1,0 +1,11 @@
+<div class="row mt-1">
+  <div class="col-1 w-auto">
+    <input class="form-check-input" [id]="'answer-isCorrect-new'" type="checkbox" [(ngModel)]="newAnswer.isCorrect">
+  </div>
+  <div class="col answer-text ps-0">
+    <input class="form-control" [id]="'answer-text-new'" type="text" [(ngModel)]="newAnswer.text">
+  </div>
+  <div class="col-1">
+    <button class="btn btn-success" type="button" (click)="emitAnswer()"><em class="bi bi-plus"></em></button>
+  </div>
+</div>

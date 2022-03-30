@@ -1,5 +1,9 @@
 import {NgModule} from '@angular/core';
+
 import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+// import {HttpModule} from "@angular/http";
+import {AppRoutingModule} from "./app-routing.module";
 
 import {AppComponent} from './app.component';
 import {SidebarComponent} from './layout/sidebar/sidebar.component';
@@ -12,11 +16,9 @@ import {TemplateSelectorComponent} from './engine/template-selector/template-sel
 import {TestFormComponent} from './engine/test-form/test-form.component';
 import {TagsComponent} from './common/tags/tags.component';
 import {WorkspaceComponent} from './layout/workspace/workspace.component';
-import {QuestionListComponent} from './vault/question-form/question-list/question-list.component';
-import {FormsModule} from "@angular/forms";
 import {NotFoundComponent} from './common/error/not-found/not-found.component';
-import {AppRoutingModule} from "./app-routing.module";
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
+import { AnswerComponent } from './vault/question-form/answer/answer.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +33,15 @@ import { HomeComponent } from './home/home.component';
     TestFormComponent,
     TagsComponent,
     WorkspaceComponent,
-    QuestionListComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    AnswerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    // HttpModule,
     AppRoutingModule
   ],
   providers: [],
