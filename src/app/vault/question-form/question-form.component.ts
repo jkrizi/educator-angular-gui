@@ -12,6 +12,9 @@ export class QuestionFormComponent implements OnInit {
 
   taughtSubjects: string[] = ['', 'Matematika', 'Fyzika', 'Chemie'];
 
+  knownTags: string[] = ['Test1', 'Zaklady', 'Vzorce', 'Neorganicka', '1. pololeti', '3. rocnik'];
+  usedTags: string[] = [];
+
   @Input() question: Question;
   @Output() finishedEditing = new EventEmitter();
 
@@ -20,9 +23,11 @@ export class QuestionFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.usedTags = Object.assign([], this.question.tags);
+
     this.form = new FormGroup({
       subject: new FormControl(this.question.subject, [Validators.required]),
-      tags: new FormControl(this.question.tags),
+      tags: new FormControl(this.usedTags),
       difficulty: new FormControl(this.question.difficulty),
       title: new FormControl(this.question.title),
       assignment: new FormControl(this.question.assignment),
@@ -37,12 +42,10 @@ export class QuestionFormComponent implements OnInit {
   }
 
   public closeForm() {
-    console.log(this.question);
     this.finishedEditing.emit();
   }
 
   submitForm() {
-    console.log(this.question);
     this.form.reset()
   }
 

@@ -5,7 +5,7 @@
       <option *ngFor="let subject of taughtSubjects" [ngValue]="subject">{{subject}}</option>
     </select>
   </div>
-  <app-tags></app-tags>
+  <app-tags [listedTags]="usedTags" [knownTags]="knownTags"></app-tags>
   <div class="mb-3">
     <label for="difficulty">Obtiznost</label>
     <input class="form-control" id="difficulty" type="number" formControlName="difficulty"/>

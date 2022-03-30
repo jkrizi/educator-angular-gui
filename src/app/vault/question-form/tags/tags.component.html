@@ -1,0 +1,14 @@
+<div class="row mb-3 align-items-center">
+  <div class="col-4">
+    <label for="tags">Stitky</label>
+    <input class="form-control d-inline-flex" id="tags" list="availableTags" #newTag (keyup.enter)="addTag()">
+    <datalist id="availableTags">
+      <option *ngFor="let tag of availableTags" [value]="tag">
+    </datalist>
+  </div>
+  <div class="col">
+    <span class="tag" *ngFor="let tag of listedTags; let i = index">{{tag}}<em class="bi bi-x" (click)="deleteTag(i)"></em></span>
+  </div>
+</div>
+
+

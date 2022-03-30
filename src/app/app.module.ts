@@ -14,7 +14,7 @@ import {QuestionFormComponent} from './vault/question-form/question-form.compone
 import {VaultFilterComponent} from './vault/vault-filter/vault-filter.component';
 import {TemplateSelectorComponent} from './engine/template-selector/template-selector.component';
 import {TestFormComponent} from './engine/test-form/test-form.component';
-import {TagsComponent} from './common/tags/tags.component';
+import {TagsComponent} from './vault/question-form/tags/tags.component';
 import {WorkspaceComponent} from './layout/workspace/workspace.component';
 import {NotFoundComponent} from './common/error/not-found/not-found.component';
 import {HomeComponent} from './home/home.component';
