@@ -1,7 +1,8 @@
 <div [ngClass]="{'split-screen': isEditing}">
   <div [ngClass]="{'split-screen-element': isEditing}">
     <app-vault-filter></app-vault-filter>
-    <button [ngClass]="{'btn-new-question': true, 'btn-new-question-selected': isSelected(EMPTY_QUESTION)}" type="button"
+    <button [ngClass]="{'btn-new-question': true, 'btn-new-question-selected': isSelected(EMPTY_QUESTION)}"
+            type="button"
             (click)="createQuestion()">Nova otazka
     </button>
     <div *ngFor="let question of questions">
@@ -10,5 +11,6 @@
     </div>
   </div>
   <app-question-form [ngClass]="{'split-screen-element': isEditing}" *ngIf="isEditing"
-                     (closeEditor)="closeEditor()" (saveQuestion)="saveQuestion($event)" [question]="openedQuestion"></app-question-form>
+                     (closeEditor)="closeEditor()" (saveQuestion)="saveQuestion($event)"
+                     [question]="openedQuestion"></app-question-form>
 </div>
