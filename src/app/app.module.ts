@@ -19,6 +19,7 @@ import {WorkspaceComponent} from './layout/workspace/workspace.component';
 import {NotFoundComponent} from './common/error/not-found/not-found.component';
 import {HomeComponent} from './home/home.component';
 import { AnswerComponent } from './vault/question-form/answer/answer.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { AnswerComponent } from './vault/question-form/answer/answer.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    // HttpModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

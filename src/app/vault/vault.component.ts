@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Question} from "../models/question.model";
+import {QuestionService} from "../service/question.service";
 
 @Component({
   selector: 'app-vault',
@@ -19,7 +20,7 @@ export class VaultComponent implements OnInit {
     {id: '3', subject: 'Chemie', title: 'Draslikova reakce', assignment: 'Zadani3', tags: ['Neorganicka', '1. pololeti', '3. rocnik'], difficulty: 10, answers: [{id: '3', isCorrect: false, text: 'Odpoved1'}, {id: '4', isCorrect: false, text: 'Odpoved2'}, {id: '5', isCorrect: true, text: 'Odpoved3'}, {id: '6', isCorrect: false, text: 'Odpoved4'},]}
   ];
 
-  constructor() { }
+  constructor(private questionService: QuestionService) { }
 
   ngOnInit(): void {
   }
@@ -55,6 +56,8 @@ export class VaultComponent implements OnInit {
   }
 
   saveQuestion(question: Question) {
-    this.questions.push(question);
+    this.questionService.saveQuestion(question).subscribe(
+      (question: Question) => this.questions.push(question)
+    )
   }
 }
