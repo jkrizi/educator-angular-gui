@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-tags',
@@ -10,7 +10,7 @@ export class TagsComponent implements OnInit {
   @Input() listedTags: string[];
   @Input() knownTags: string[];
 
-  @ViewChild('newTag') newTag: ElementRef;
+  freshTag: string;
 
   availableTags: string[];
 
@@ -24,7 +24,10 @@ export class TagsComponent implements OnInit {
     this.listedTags.splice(tagIndex, 1);
   }
 
-  addTag() {
-    this.listedTags.push(this.newTag.nativeElement.value);
+  addTag() {;
+    if (this.freshTag !== "") {
+      this.listedTags.push(this.freshTag);
+      this.freshTag = "";
+    }
   }
 }
