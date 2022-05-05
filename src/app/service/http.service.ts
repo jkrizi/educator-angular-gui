@@ -1,7 +1,7 @@
 import {HttpErrorResponse} from "@angular/common/http";
 import {throwError} from "rxjs";
 
-export class AbstractHttpService {
+export class HttpService {
 
   handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

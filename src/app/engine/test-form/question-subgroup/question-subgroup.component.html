@@ -1,0 +1,34 @@
+  <div class="mt-4 bg-light border-start rounded p-3">
+    <app-tags 
+        [listedTags]="selectedTags" 
+        [knownTags]="subjectTags" 
+        (noTag)="removeThisSubgroup()" 
+        (firstTag)="addAnotherSubgroup()">
+    </app-tags>
+    <div *ngIf="selectedTags.length > 0">
+      <div class="row mt-2 gx-1">
+        <div class="col-auto">
+          <label>Pocet</label>
+          <input class="form-control w-auto text-center" type="number" [placeholder]="'Max ' + questionPieAggregate.maxCount">
+        </div>
+        <div class="col-auto">
+          <label>Obtiznost</label>
+          <input class="form-control w-auto text-center" type="number" [placeholder]="'Max ' + questionPieAggregate.difficulty">
+        </div>
+      </div>
+      <label class="mt-2" (click)="toggleHistogram()" style="cursor: pointer;">Rozlozeni obtiznosti +</label>
+      <div *ngIf="showHistogram" class="row gx-1">
+        <div *ngFor="let slice of questionPie; let i = index" class="col-auto">
+          <label>{{slice.difficulty}}</label>
+          <input  type="number" 
+                  class="form-control w-auto text-center" 
+                  [disabled]="slice.maxCount === 0" 
+                  [max]="slice.maxCount" 
+                  [placeholder]="slice.maxCount === 0 ? 'Zadna' : 'Max ' + slice.maxCount">
+          <button [disabled]="slice.count === 0" class="btn btn-secondary w-100" (click)="openModal()">+</button>
+        </div>
+      </div>
+      <div *ngFor="let singledQuestion of singledOutQuestions">
+      </div>
+    </div>
+  </div>

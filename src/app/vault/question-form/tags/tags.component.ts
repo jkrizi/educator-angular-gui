@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tags',
@@ -10,8 +10,10 @@ export class TagsComponent implements OnInit {
   @Input() listedTags: string[];
   @Input() knownTags: string[];
 
-  freshTag: string;
+  @Output() noTag = new EventEmitter();
+  @Output() firstTag = new EventEmitter();
 
+  freshTag: string;
   availableTags: string[];
 
   constructor() { }
@@ -22,12 +24,19 @@ export class TagsComponent implements OnInit {
 
   deleteTag(tagIndex: number) {
     this.listedTags.splice(tagIndex, 1);
+    if (this.listedTags.length === 0) {
+      this.noTag.emit();
+    }
   }
 
   addTag() {;
-    if (this.freshTag !== "") {
-      this.listedTags.push(this.freshTag);
-      this.freshTag = "";
+    if (!this.freshTag || this.listedTags.find(tag => tag === this.freshTag) !== undefined) {
+      return;
+    }
+    this.listedTags.push(this.freshTag);
+    this.freshTag = '';
+    if (this.listedTags.length === 1) {
+      this.firstTag.emit();
     }
   }
 }

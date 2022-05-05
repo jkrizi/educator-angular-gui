@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '
 import {Question} from "../../models/question.model";
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Answer} from "../../models/answer.model";
+import { SubjectService } from 'src/app/service/subject.service';
+import { TagService } from 'src/app/service/tag.service';
 
 @Component({
   selector: 'app-question-form',
@@ -10,8 +12,8 @@ import {Answer} from "../../models/answer.model";
 })
 export class QuestionFormComponent implements OnChanges {
 
-  taughtSubjects: string[] = ['', 'Matematika', 'Fyzika', 'Chemie'];
-  knownTags: string[] = ['Test1', 'Zaklady', 'Vzorce', 'Neorganicka', '1. pololeti', '3. rocnik'];
+  taughtSubjects: string[];
+  knownTags: string[];
 
   usedTags: string[] = [];
 
@@ -21,7 +23,10 @@ export class QuestionFormComponent implements OnChanges {
 
   form: FormGroup;
 
-  constructor() { }
+  constructor(private subjectService: SubjectService, private tagService: TagService) {
+    this.taughtSubjects = subjectService.getTaughtSubjects();
+    this.knownTags = tagService.getKnownTags();
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.question = changes.question.currentValue;

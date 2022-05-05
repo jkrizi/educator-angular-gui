@@ -1,8 +1,8 @@
-<div class="mb-3 mt-3 align-items-center">
+<div class="align-items-center">
   <label for="tags">Stitky</label>
   <div class="d-flex">
     <div>
-      <span class="tag" *ngFor="let tag of listedTags; let i = index">{{tag}}<em class="bi bi-x" (click)="deleteTag(i)"></em></span>
+      <span class="tag rounded-pill" *ngFor="let tag of listedTags; let i = index">{{tag}}<em class="bi bi-x" (click)="deleteTag(i)"></em></span>
     </div>
     <div [ngClass]="{'ms-3': listedTags.length > 0}">
       <input class="w-auto border-0 border-bottom" style="outline: none" id="tags" list="availableTags" (keyup.enter)="addTag()" (blur)="addTag()" [(ngModel)] = "freshTag">

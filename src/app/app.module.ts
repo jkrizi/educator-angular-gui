@@ -20,6 +20,7 @@ import {NotFoundComponent} from './common/error/not-found/not-found.component';
 import {HomeComponent} from './home/home.component';
 import { AnswerComponent } from './vault/question-form/answer/answer.component';
 import {HttpClientModule} from "@angular/common/http";
+import { QuestionSubgroupComponent } from './engine/test-form/question-subgroup/question-subgroup.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {HttpClientModule} from "@angular/common/http";
     WorkspaceComponent,
     NotFoundComponent,
     HomeComponent,
-    AnswerComponent
+    AnswerComponent,
+    QuestionSubgroupComponent
   ],
   imports: [
     BrowserModule,
